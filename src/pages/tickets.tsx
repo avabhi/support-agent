@@ -38,7 +38,6 @@ const Tickets = () => {
       await fetchTickets();
     })();
   }, []);
-  console.log("find me here", tickets);
 
   return (
     <RootLayout>

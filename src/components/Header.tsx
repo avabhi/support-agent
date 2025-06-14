@@ -12,8 +12,6 @@ const Header = () => {
     navigate("/login");
   };
 
-  console.log("find me here2", profileOpen);
-
   return (
     <header className="w-full bg-base-100 shadow flex items-center justify-between px-6 py-4 z-50 relative">
       <div
@@ -52,8 +50,9 @@ const Header = () => {
         </button>
         <div
           className="relative"
-          tabIndex={0}
-          onClick={() => setProfileOpen((v) => !v)}
+          //   tabIndex={0}
+          onMouseEnter={() => setProfileOpen(true)}
+          onFocus={() => setProfileOpen(true)}
           onBlur={(e) => {
             // Only close if focus moves outside the dropdown
             if (!e.currentTarget.contains(e.relatedTarget)) {
@@ -72,7 +71,6 @@ const Header = () => {
             <div
               className="absolute right-0 mt-2 w-48 bg-base-100 shadow-lg rounded-lg py-2 z-50 border border-base-200"
               tabIndex={-1}
-              onMouseEnter={() => setProfileOpen(true)}
               onMouseLeave={() => setProfileOpen(false)}
             >
               <button
