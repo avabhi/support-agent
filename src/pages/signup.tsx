@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { APP_TITLE } from "../constants/generalConstants";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -52,7 +53,7 @@ const Signup = () => {
         onSubmit={handleSignup}
       >
         <h2 className="text-3xl font-extrabold mb-2 text-center text-primary">
-          Sign Up
+          {APP_TITLE}
         </h2>
         <div className="form-control flex flex-col space-y-2">
           <label className="label">

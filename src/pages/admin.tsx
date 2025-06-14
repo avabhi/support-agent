@@ -11,7 +11,7 @@ const Admin = () => {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        const [usersRes, ticketsRes, openTicketsRes] = await Promise.all([
+        const [usersRes, ticketsRes] = await Promise.all([
           fetch(`${import.meta.env.VITE_SERVER_URL}/api/auth/get-users`, {
             headers: { Authorization: `Bearer ${token}` },
           }),

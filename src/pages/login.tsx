@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { APP_TITLE } from "../constants/generalConstants";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -52,7 +53,7 @@ const Login = () => {
         onSubmit={handlogin}
       >
         <h2 className="text-3xl font-extrabold mb-2 text-center text-primary">
-          Login
+          {APP_TITLE}
         </h2>
         <div className="form-control flex flex-col space-y-2">
           <label className="label">
@@ -94,6 +95,17 @@ const Login = () => {
           ) : null}
           {loading ? "Logging In ..." : "Login"}
         </button>
+        <div className="text-center text-sm text-gray-400 mt-2">
+          Don't have an account?{" "}
+          <a href="/signup" className="text-primary hover:underline">
+            <button
+              type="button"
+              className="btn btn-link p-0 min-h-0 h-auto align-baseline text-primary"
+            >
+              Signup
+            </button>
+          </a>
+        </div>
       </form>
     </div>
   );

@@ -8,6 +8,7 @@ import Ticket from "./pages/ticket.tsx";
 import Login from "./pages/login.tsx";
 import Signup from "./pages/signup.tsx";
 import Admin from "./pages/admin.tsx";
+import CreateTicket from "./pages/create.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -26,6 +27,14 @@ createRoot(document.getElementById("root")!).render(
           element={
             <CheckAuth protectedRoute={true}>
               <Ticket />
+            </CheckAuth>
+          }
+        />
+        <Route
+          path="/create-ticket"
+          element={
+            <CheckAuth protectedRoute={true}>
+              <CreateTicket />
             </CheckAuth>
           }
         />
