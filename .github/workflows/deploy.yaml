@@ -1,40 +1,44 @@
 name: Deploy Support Agent Frontend
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
   push:
     branches:
       - main
 
 jobs:
-    build-deplpoy:
-      runs-on: ubuntu-latest
-      steps:
-           # Checkout the code
-            - name: Checkout code
-              uses: actions/checkout@v3
+  build-deplpoy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-          # Setup node.js
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                node-version: '18'
-                cache: 'npm'
+      # Setup node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
 
-          #Intall dependencies
-            - name: Install dependencies
-              run: npm install   
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install   
 
-          # Build the project
-            - name: Build project
-              run: npm run build   
+      # Create .env file from GitHub secret
+      - name: Create .env file
+        run: echo "VITE_SERVER_URL=${{ secrets.VITE_SERVER_URL }}" > .env
 
-          # Deploy to GitHub Pages
-            - name: Deploy to GitHub Pages
-              uses: peaceiris/actions-gh-pages@v3
-              with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: dist
-                publish_branch: gh-pages
-                force_orphan: true
-                keep_files: false
+      # Build the project
+      - name: Build project
+        run: npm run build   
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+          publish_branch: gh-pages
+          force_orphan: true
+          keep_files: false
