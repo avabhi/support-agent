@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import CheckAuth from "./components/checkAuth.tsx";
 import Tickets from "./pages/tickets.tsx";
 import Ticket from "./pages/ticket.tsx";
@@ -12,7 +12,7 @@ import CreateTicket from "./pages/create.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route
           path="/"
@@ -63,6 +63,6 @@ createRoot(document.getElementById("root")!).render(
           }
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>
 );
