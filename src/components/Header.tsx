@@ -74,19 +74,19 @@ const Header = () => {
               onMouseLeave={() => setProfileOpen(false)}
             >
               <button
-                className="block w-full text-left px-4 py-2 hover:bg-base-200 text-base"
+                className="block w-full text-left px-4 py-2 hover:bg-base-200 text-base cursor-pointer"
                 onClick={() => navigate("/profile")}
               >
                 Profile
               </button>
               <button
-                className="block w-full text-left px-4 py-2 hover:bg-base-200 text-base"
+                className="block w-full text-left px-4 py-2 hover:bg-base-200 text-base cursor-pointer"
                 onClick={() => navigate("/my-tickets")}
               >
                 My Tickets
               </button>
               <button
-                className="block w-full text-left px-4 py-2 hover:bg-error/20 text-error text-base"
+                className="block w-full text-left px-4 py-2 hover:bg-error/20 text-error text-base cursor-pointer"
                 onClick={handleLogout}
               >
                 Logout
